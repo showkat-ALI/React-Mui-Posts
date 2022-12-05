@@ -10,18 +10,11 @@ import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import { get } from "react-hook-form";
 
-const Post = ({ post, setPosts, posts, updateOne }) => {
+const Post = ({ post, setPosts, posts, deletePost, updateOne }) => {
   const navigate = useNavigate();
 
-  const { body, title, id, subject } = post;
+  const { body, title, id } = post;
 
-  const showTitle = (id) => {
-    console.log(id);
-  };
-  // const showLooseFoc = (id) => {
-  //   console.log(id);
-  // };
-  // console.log(getEvent);
   const style = {
     position: "absolute",
     top: "50%",
@@ -39,12 +32,17 @@ const Post = ({ post, setPosts, posts, updateOne }) => {
   const handleClose = () => setOpen(false);
   const handleInputChange = (e) => {
     const getText = e.target.value;
-    updateOne(id, getText, subject, body);
+    console.log();
+    if (e.target.value.length > 0) {
+      updateOne(id, getText, body);
+    } else {
+      return console.log("Value must be grater than 0");
+    }
   };
 
   return (
     <Box>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: "full" }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Id: {id}
@@ -57,13 +55,14 @@ const Post = ({ post, setPosts, posts, updateOne }) => {
           >
             {title}
           </Typography>
-          <Typography variant="h5" component="div">
-            {subject}
-          </Typography>
 
           <Typography variant="body2">{body}</Typography>
         </CardContent>
-        <CardActions></CardActions>
+        <CardActions>
+          <Button onClick={() => deletePost(id)} size="small">
+            Delete
+          </Button>
+        </CardActions>
       </Card>
       <Modal
         open={open}

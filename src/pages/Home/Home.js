@@ -4,9 +4,11 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import Navigation from "../../commonComp/navigation/Navigation";
 import Footer from "../../commonComp/footer/Footer";
+import Pagination from "@mui/material/Pagination";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -17,12 +19,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page]);
   const fetchData = async () => {
-    await fetch("http://127.0.0.1:3005/posts")
+    await fetch(`http://127.0.0.1:3005/posts?_page=${page}`)
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .then((data) => console.log(data))
@@ -37,13 +40,12 @@ const Home = () => {
 
       .then((err) => console.log(err));
   };
-  const updateOne = async (id, getText, subject, body) => {
+  const updateOne = async (id, getText, body) => {
     await fetch(`http://127.0.0.1:3005/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         id: id,
         title: getText,
-        subject: subject,
         body: body,
       }),
       headers: {
@@ -58,25 +60,27 @@ const Home = () => {
   return (
     <>
       <Navigation />
-      <Box sx={{ flexGrow: 1 }}>
+      <Container>
         <Grid container spacing={6}>
           {posts.map((post, idx) => (
             <Grid key={idx} item xs={4}>
               <Item>
                 <Post
                   updateOne={updateOne}
-                  posts={posts}
-                  setPosts={setPosts}
+                  deletePost={deletePost}
                   post={post}
                 />
-                <Button onClick={() => deletePost(post.id)} size="small">
-                  Delete
-                </Button>
               </Item>
             </Grid>
           ))}
         </Grid>
-      </Box>
+        <Pagination
+          onChange={(e, value) => setPage(value)}
+          page={page}
+          count={2}
+          color="secondary"
+        />
+      </Container>
       <Footer />
     </>
   );

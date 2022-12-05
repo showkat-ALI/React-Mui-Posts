@@ -32,7 +32,6 @@ const Post = ({ post, setPosts, posts, deletePost, updateOne }) => {
   const handleClose = () => setOpen(false);
   const handleInputChange = (e) => {
     const getText = e.target.value;
-    console.log();
     if (e.target.value.length > 0) {
       updateOne(id, getText, body);
     } else {

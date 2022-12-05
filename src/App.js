@@ -12,7 +12,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="/post/add" element={<AddPost />} />
-        <Route path="/post/edit/:postId" element={<EditPost />} />
       </Routes>
     </div>
   );

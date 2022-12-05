@@ -1,3 +1,19 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": 1,
+      "title": "react js4",
+      "body": "this is simple body"
+    },
+    {
+      "id": 2,
+      "title": "react dkjhljajkjdf",
+      "body": "this is simple body"
+    },
+    {
+      "id": 3,
+      "title": "react js3555",
+      "body": "this is simple body"
+    }
+  ]
 }

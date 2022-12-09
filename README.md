@@ -4,7 +4,7 @@ This project is created with React JS, Material UI, Json web server
 
 
 1. Install this project from my github
-2. Open the command line and hit the comand yard
+2. Open the command line and hit the comand yarn
 3. Then run the command npm start to see this project
 4. Open another terminal and write npm run json-server to start the server of all post unless you cannot see any post
 5. Reload the website

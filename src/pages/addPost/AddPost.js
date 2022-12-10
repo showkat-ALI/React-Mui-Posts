@@ -45,7 +45,6 @@ const AddPost = () => {
               <TextField
                 id="title"
                 required
-                label="Write a title"
                 style={{
                   minWidth: "400px",
                 }}
@@ -62,7 +61,6 @@ const AddPost = () => {
                 style={{ minWidth: "400px" }}
                 id="body"
                 required
-                label="Write a description"
                 variant="filled"
                 {...register("body", { required: true })}
                 type={"text"}

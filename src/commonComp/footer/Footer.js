@@ -25,21 +25,16 @@ const Footer = () => {
         </Typography>
       </Box>
       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-        <IconButton aria-label="Open in new tab" component="a" href="#as-link">
+        <IconButton component="a" href="#as-link">
           <FacebookIcon sx={{ color: "white" }} />
         </IconButton>
         <IconButton
-          aria-label="Open in new tab"
           component="a"
           href="https://www.linkedin.com/in/showkat-ali/"
         >
           <LinkedInIcon sx={{ color: "white" }} />
         </IconButton>
-        <IconButton
-          aria-label="Open in new tab"
-          component="a"
-          href="https://github.com/showkat-ALI"
-        >
+        <IconButton component="a" href="https://github.com/showkat-ALI">
           <GitHubIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>

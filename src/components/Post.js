@@ -57,7 +57,6 @@ const Post = ({ post, deletePost, updateOne }) => {
 
   return (
     //Single Post start
-
     <Box>
       <Card sx={{ maxWidth: "full", height: "320px", padding: "5px" }}>
         <CardContent>
@@ -83,7 +82,6 @@ const Post = ({ post, deletePost, updateOne }) => {
           <Dialog
             open={delopen}
             onClose={handlDelClickClose}
-            aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >
             <Alert severity="warning">
@@ -110,7 +108,7 @@ const Post = ({ post, deletePost, updateOne }) => {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
+        a
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>

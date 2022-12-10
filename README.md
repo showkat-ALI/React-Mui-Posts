@@ -2,7 +2,7 @@
 
 This project is created with React JS, Material UI, Json web server
 
-0.  [Visite this link to see the live website](https://react-mui-posts.web.app/)
+0.  [Visit this link to see the live website](https://react-mui-posts.web.app/)
 1. Install this project from my github
 2. Open the command line and hit the comand yarn
 3. Open terminal and write npm run json-server to start the server of all post unless you cannot see any post
